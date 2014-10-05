@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="//assets.ziggeo.com/css/ziggeo-betajs-player.min.css" />
+    <script src="//assets.ziggeo.com/js/ziggeo-json2-betajs-player.min.js"></script>
+    <script>ZiggeoApi.token = "85947ae896bc6363d58e8fdb0025da37";</script>
+    <script>server_auth = "772d4978f045bf2c1480e4ced44b5050";</script>
+    <script>
+    var videos = null
+
+    </script>
+
+  </head>
+  <body>
+    <h1>Look hot!</h1>      
+    <ul>
+      <li>
+        <ziggeo class="first" ziggeo-width=320 ziggeo-height=240></ziggeo>
+      </li>
+      <!--<li>
+        <ziggeo ziggeo-video='6448f1cdac1e9027b9c8d83ebf84f04a'ziggeo-width=320 ziggeo-height=240></ziggeo>
+      </li>
+      <li>
+        <ziggeo ziggeo-video='59433f67570e3a0bf6e70c1af9a32081'ziggeo-width=320 ziggeo-height=240></ziggeo>
+      </li>-->
+    </ul>
+    <script>
+      ZiggeoApi.Events.on("submitted", function (data) {
+          console.log("time: " + time);
+          var flag = 0;
+          console.log(videos.length);
+          for (i=0; i<videos.length; i++) {
+            if (videos[i].token === data.video.token) {
+              flag = 1;
+              break;
+            }
+          }
+          if (!flag) {
+            //var challenge = $('h1').text();
+            //ZiggeoApi.Videos.update({key: challenge}, data, {
+              //success: function (args, result) {
+               //alert(result); 
+              //},
+              //failure: function (args, error) {
+                //alert(error);
+              //}
+            //});
+            videos.push(data.video);
+            element = "<li><ziggeo ziggeo-video='"+ data.video.token + "' ziggeo-width=320 ziggeo-height=240></ziggeo></li>";
+            $('ul').append(element);
+          }
+      });
+      
+      ZiggeoApi.Events.on("recording", function(data) {
+          data.video.key = $('h1').text();
+      });
+
+      $( document ).ready(function() {
+        var data = {server_auth : "772d4978f045bf2c1480e4ced44b5050", tags : "cool"};
+        ZiggeoApi.Videos.index(data, {
+          success: function (args, result) {
+            videos = result;
+            for (i=0; i < videos.length; i++) {
+              element = "<li><ziggeo ziggeo-video='"+ videos[i].token + "' ziggeo-width=320 ziggeo-height=240></ziggeo></li>";
+              $('ul').append(element);
+            }
+          },
+          failure: function (args, error) {
+            alert(error);
+          }
+        });
+      });
+    </script>
+    <div id='comment'>
+      Comment:<br />
+      <textarea name='comment' id='field' /></textarea>
+    </div>
+  </body>
+</html>
