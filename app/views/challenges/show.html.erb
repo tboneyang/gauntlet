@@ -76,8 +76,14 @@
     else if (title == "\nBest armpit farts\n") {
       var data = { tags : 'armpit' };
     }
+    else if (title =="\n30 Second Poem\n") {
+      var data = { tags : 'poetry' };
+    }
+    else if (title == "\nStaring Contest\n") {
+      var data = { tags : 'stare' };
+    }
     else {
-      var data = { tags : '' };
+      var data = { tags : 'null' };
     }
     ZiggeoApi.Videos.index(data, {
       success: function (args, result) {
@@ -96,7 +102,6 @@
   });
   
   function likeFunction(){
-    alert("liked");
   }
 
 </script>
