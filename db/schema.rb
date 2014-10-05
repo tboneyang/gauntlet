@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141005072635) do
+ActiveRecord::Schema.define(version: 20141005053113) do
 
   create_table "challenges", force: true do |t|
     t.string   "title"

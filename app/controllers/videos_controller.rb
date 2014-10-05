@@ -5,6 +5,12 @@ class VideosController < ApplicationController
 
   def create
   	@video.string= @challenge.title
+        @video.challenge = current_challenge
+        if @video.save
+          redirect_to challenge_path
+        else
+          redirect_to root
+        end
   end
 
   def update
@@ -16,5 +22,11 @@ class VideosController < ApplicationController
 
   	redirect_to challenge_path
   end
+
+  private
+    
+    def video_params
+      params.require(:video).permit(:token)
+    end
 
 end

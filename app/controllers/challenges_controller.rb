@@ -71,7 +71,7 @@ class ChallengesController < ApplicationController
 #defines strong challenge parameters so only appropriate data is passed
 	private
 		def challenge_params
-			params.require(:challenge).permit(:title, :text, :tag_list, :score)
+			params.require(:challenge).permit(:title, :text, :tag_list, :score, :videos)
 		end
 
 end

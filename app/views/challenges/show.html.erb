@@ -6,11 +6,10 @@
 <div>
 
 <div id="nav">
-	<%= link_to 'Challenges', challenges_path %>
+	<%= link_to 'Home', challenges_path %>
 	<%= link_to 'Edit', edit_challenge_path %>
-	<%= link_to 'Delete', @challenge, :method => :delete %>
-	Rating: <%= @challenge.score %> <br>
-	<%= @challenge.tag_list %>
+        <!--<%= link_to 'Delete', @challenge, :method => :delete %>
+        <%= @challenge.tag_list %>-->
 </div>
 
 <p id="showtag">
@@ -34,9 +33,7 @@
 
 <script>
   ZiggeoApi.Events.on("submitted", function (data) {
-      console.log("time: " + time);
       var flag = 0;
-      console.log(videos.length);
       for (i=0; i<videos.length; i++) {
         if (videos[i].token === data.video.token) {
           flag = 1;
@@ -44,16 +41,15 @@
         }
       }
       if (!flag) {
-        //var challenge = $('h1').text();
-        //ZiggeoApi.Videos.update({key: challenge}, data, {
-          //success: function (args, result) {
-           //alert(result); 
-           //}
-          //failure: function (args, error) {
-            //alert(error);
-          //}
-        //});
         videos.push(data.video);
+        ZiggeoApi.Videos.update(data.video.token, data, {
+          success: function (args, result) {
+            //success
+          },
+          failure: function (args, error) {
+            //failure
+          }
+        });
         element = "<li><ziggeo ziggeo-video='"+ data.video.token + "' ziggeo-width=320 ziggeo-height=240></ziggeo></li>";
         $('ul').append(element);
       }
@@ -65,7 +61,24 @@
 
   $( document ).ready(function() {
     var title = $("#showtitle").text();
-    var data = { tags : 'funny' };
+    if (title === "\nMake a funny face\n"){
+      var data = { tags : "funny" };
+    }
+    else if (title == "\nBest pick up line\n") {
+      var data = { tags : 'line' }
+    }
+    else if (title == "\nBest kiss\n") {
+      var data = { tags : 'kiss' };
+    }
+    else if (title == "\nBest flex\n") {
+      var data = { tags : 'flex' };
+    }
+    else if (title == "\nBest armpit farts\n") {
+      var data = { tags : 'armpit' };
+    }
+    else {
+      var data = { tags : '' };
+    }
     ZiggeoApi.Videos.index(data, {
       success: function (args, result) {
         videos = result;
@@ -73,10 +86,17 @@
           element = "<li><ziggeo ziggeo-video='"+ videos[i].token + "' ziggeo-width=320 ziggeo-height=240></ziggeo></li>";
           $('ul').append(element);
         }
+        like_button = "<input type='image' onClick='likeFunction()' style= 'width:4em; height:2em;'src='http://www.insidefacebook.com/wp-content/uploads/2012/07/facebook_like_button_big.jpeg'/>";
+        $('ziggeo').append(like_button);
       },
       failure: function (args, error) {
         alert(error);
       }
     });
   });
+  
+  function likeFunction(){
+    alert("liked");
+  }
+
 </script>

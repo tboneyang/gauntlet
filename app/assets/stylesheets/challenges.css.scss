@@ -2,22 +2,43 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$grayMediumLight: #eaeaea;
+$gray: #555;
+$grayDark: #333;
+$grayLight: #999;
+
 #tag_cloud {
-  width: 500px;
-  height:82px;
+  width: 600px;
+  height: 52px;
   line-height: 1.6em;
   .s { font-size: 0.8em; }
   .m { font-size: 1.2em; }
   .l { font-size: 1.8em; }
-  float:left;
-  border:2px solid black;
+  float:right;
+  text-align: center;
+  /*border:2px solid black;*/
   padding:10px;
+  float: right;
   word-spacing:5px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  a {
+    text-decoration: none;
+    color: $grayLight;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    color: black;
+  }
 }
 
 #slogan {
-	text-align:center;
-	font-size:40px;
+	text-align: center;
+	font-size: 3em;
+        letter-spacing: -2px;
+        margin-bottom: 30px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-style: normal;
 }
 
 #container{
@@ -31,15 +52,23 @@
 	text-align:center;
 	width:210px;
 	float:left;
-	font-size:30px;
-	border:2px solid black;
+	font-size: 1.7em;
+	/*border:2px solid black;*/
 	padding:10px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        a{
+          text-decoration: none;
+          color: $grayLight;
+        }
+        a:hover{
+          color: black;
+        }
 }
 
 #header{
 	height:90px;
 	width:100%;
-	border:1px solid black;
+	/*border:1px solid black;*/
 	position:relative;
 	overlap:none;
 }
@@ -55,9 +84,17 @@ a{
 	width:150px;
 	text-align:center;
 	padding:10px;
-	font-size:30px;
-	border:2px solid black;
+	font-size: 1.7em;
+	/*border:2px solid black;*/
 	float:left;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        a {
+          text-decoration: none;
+          color: $grayLight;
+        }
+        a:hover {
+          color: black;
+        }
 }
 #search{
 	border:2px solid black;
@@ -65,26 +102,34 @@ a{
 
 #challengetitle{
 	text-align:justified;
-	font-size:21px;
-
+	font-size: 1em;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        a {
+          text-decoration: none;
+        }
+        a:hover{
+          color: $grayDark;
+        }
 }
 
 #challengebox{
 	position:relative;
-	border:1px solid black;
 	height:210px;
-	width: 155px;
+	width: 28%;
 	margin-left:20px;
 	margin-top:20px;
 	padding:10px;
 	float:left;
+        img {
+          border: 1px solid black;
+        }
 }
 #challengetag{
 	position:absolute;
 	font-size:16px;
 	bottom:5px;
 	border-top:2px solid black;
-	width:90%;
+	width:50%;
 }
 
 #showtitle{
@@ -93,14 +138,19 @@ a{
 	text-align:center;
 	border-bottom:2px solid black;
 	width:100%;
+        letter-spacing: -1px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        cursor: default;
 }
 
 #showtext{
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: -1px;
 	font-size:25px;
 	padding:10px;
-	border:2px solid black;
 	height:100px;
 	width:70%;
+        color: $grayLight;
 }
 
 #showtag{
@@ -111,9 +161,51 @@ a{
 }
 
 #nav{
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        letter-spacing: -1px;
 	font-size:25px;
-	word-spacing:5px;
+        text-align: right;
+	word-spacing: 2em;
 	float:right;
 	padding:10px;
-	width:300px;
+	width: 30%;
+        a{
+          text-decoration: none;
+          color: $grayLight;
+        }
+        a:hover{
+          color: $grayDark;
+        }
+}
+
+
+ul{
+  width: 100%;
+}
+
+li {
+  display: inline;
+}
+
+ziggeo {
+  padding: 10px 0px 30px 40px;
+  float: left;
+  width: 30%; 
+}
+
+.video-player-outer {
+  border: 1px solid black;
+}
+
+#comment {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 75%;
+  height: 9em;
+}
+
+#comment #field {
+  height: 100%;
+  width: 100%;
 }

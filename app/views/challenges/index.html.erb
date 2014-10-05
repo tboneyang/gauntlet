@@ -1,14 +1,14 @@
-<div id="slogan">The Internet's Finest Compete for Eternal Glory</div>
+<h1 id="slogan">Compete for Eternal Glory</h1>
 
 <div id="container">
 <div id="header">
 
 <div id="newbox">
-<%= link_to 'Add New Challenge', new_challenge_path %>
+<%= link_to 'Add', new_challenge_path %>
 </div>
 
 <div id="allbox">
-	<%= link_to "All Challenges", challenges_path %>
+	<%= link_to "All", challenges_path %>
 </div>
 
 <div id='tag_cloud'>
@@ -36,7 +36,6 @@
 			<%= link_to challenge.title, challenge_path(challenge) %>
 			</p>
 			<%= challenge.score %>
-			
 			<p id="challengetag">
 				<%= raw challenge.tag_list.map { |t| link_to t, tag_path(t) }.join('     ') %>
 			</p>
