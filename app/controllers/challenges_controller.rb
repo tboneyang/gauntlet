@@ -32,6 +32,12 @@ class ChallengesController < ApplicationController
 		@challenge.save
 	end
 
+	def downvote
+		@challenge = Challenge.find(params[:id])
+		@challenge.score-=1
+		@challenge.save
+	end
+
 #update action after edit is made
 	def update
 		@challenge = Challenge.find(params[:id])
