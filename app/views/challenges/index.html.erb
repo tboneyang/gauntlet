@@ -1,0 +1,50 @@
+<div id="slogan">The Internet's Finest Compete for Eternal Glory</div>
+
+<div id="container">
+<div id="header">
+
+<div id="newbox">
+<%= link_to 'Add New Challenge', new_challenge_path %>
+</div>
+
+<div id="allbox">
+	<%= link_to "All Challenges", challenges_path %>
+</div>
+
+<div id='tag_cloud'>
+	<% tag_cloud Challenge.tag_counts, %w[s m l] do |tag, css_class| %>
+		<%= link_to tag.name, tag_path(tag.name), class: css_class %>
+	<% end %>
+</div>
+<!--
+<div id="search">
+	<% form_tag challenges_path, :method => 'get' do %>
+	  <p>
+	    <%= text_field_tag :search, params[:search] %>
+	    <%= submit_tag "Search", :name => nil %>
+	  </p>
+	<% end %>
+</div>
+-->
+</div>
+<br>
+<div id="newest">
+<% @challenges.each do |challenge| %>
+	<span>
+		<div id="challengebox">
+			<p id="challengetitle">
+			<%= link_to challenge.title, challenge_path(challenge) %>
+			</p>
+			<%= challenge.score %>
+			
+			<p id="challengetag">
+				<%= raw challenge.tag_list.map { |t| link_to t, tag_path(t) }.join('     ') %>
+			</p>
+		</div>
+	</span>
+<% end %>
+</div>
+<br>
+</div>
+</div>
+

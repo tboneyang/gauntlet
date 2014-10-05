@@ -1,0 +1,24 @@
+<%= form_for @challenge, :html => {:multipart => true} do |b| %>
+
+	<p>
+		<%= b.label :title %><br>
+		<%= b.text_field :title %>
+	</p>
+
+	<p>
+		<%= b.label :tags %><br>
+		<%= b.text_field :tag_list, { :placeholder => "Separate Tags By Commas" } %><br>
+	</p>
+
+	<p>
+		<%= b.label :text %><br>
+		<%= b.text_area :text %><br>
+
+	</p>
+	<p>
+		<%= b.submit %>
+	</p>
+
+<% end %>
+
+

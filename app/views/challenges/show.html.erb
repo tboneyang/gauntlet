@@ -1,0 +1,27 @@
+<div id="container">
+
+<div id="showtitle">
+<%= @challenge.title %>
+</div>
+<div>
+
+<div id="nav">
+	<%= link_to 'Challenges', challenges_path %>
+	<%= link_to 'Edit', edit_challenge_path %>
+	<%= link_to 'Delete', @challenge, :method => :delete %>
+	Rating: <%= @challenge.score %> <br>
+	<%= @challenge.tag_list %>
+</div>
+
+<p id="showtag">
+
+</p>
+
+<p id="showtext">
+	<%= @challenge.text %>
+</p>
+
+</div>
+
+
+</div>

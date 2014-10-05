@@ -1,0 +1,119 @@
+// Place all the styles related to the challenges controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#tag_cloud {
+  width: 500px;
+  height:82px;
+  line-height: 1.6em;
+  .s { font-size: 0.8em; }
+  .m { font-size: 1.2em; }
+  .l { font-size: 1.8em; }
+  float:left;
+  border:2px solid black;
+  padding:10px;
+  word-spacing:5px;
+}
+
+#slogan {
+	text-align:center;
+	font-size:40px;
+}
+
+#container{
+	margin-top:1%;
+	margin-left:10%;
+	margin-right:10%;
+	padding:10px;
+}
+
+#newbox{
+	text-align:center;
+	width:210px;
+	float:left;
+	font-size:30px;
+	border:2px solid black;
+	padding:10px;
+}
+
+#header{
+	height:90px;
+	width:100%;
+	border:1px solid black;
+	position:relative;
+	overlap:none;
+}
+#newest{
+	padding:20px;
+}
+
+a{
+	color:black;
+}
+
+#allbox{
+	width:150px;
+	text-align:center;
+	padding:10px;
+	font-size:30px;
+	border:2px solid black;
+	float:left;
+}
+#search{
+	border:2px solid black;
+}
+
+#challengetitle{
+	text-align:justified;
+	font-size:21px;
+
+}
+
+#challengebox{
+	position:relative;
+	border:1px solid black;
+	height:210px;
+	width: 155px;
+	margin-left:20px;
+	margin-top:20px;
+	padding:10px;
+	float:left;
+}
+#challengetag{
+	position:absolute;
+	font-size:16px;
+	bottom:5px;
+	border-top:2px solid black;
+	width:90%;
+}
+
+#showtitle{
+	font-size:50px;
+	font-weight:bold;
+	text-align:center;
+	border-bottom:2px solid black;
+	width:100%;
+}
+
+#showtext{
+	font-size:25px;
+	padding:10px;
+	border:2px solid black;
+	height:100px;
+	width:70%;
+}
+
+#showtag{
+	font-size: 25px;
+	float:right;
+	padding:10px;
+
+}
+
+#nav{
+	font-size:25px;
+	word-spacing:5px;
+	float:right;
+	padding:10px;
+	width:300px;
+}
